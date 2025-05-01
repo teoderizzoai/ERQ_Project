@@ -1,4 +1,4 @@
-# 🎮 [Elden Ring Quiz with RAG](https://erqproject-8ykkmud3dzdnzkwjqyggf3.streamlit.app/)
+# 🎮 [RAGlite Elden Ring Quiz](https://erqproject-8ykkmud3dzdnzkwjqyggf3.streamlit.app/)
 
 
 ![Main Menu Screenshot](https://i.imgur.com/ub0HDLG.png)
