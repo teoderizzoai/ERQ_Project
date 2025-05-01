@@ -21,12 +21,9 @@ wheels/
 *.egg
 
 # Virtual Environment
-.env
-.venv
-env/
 venv/
+env/
 ENV/
-.conda/
 
 # IDE
 .idea/
@@ -36,7 +33,10 @@ ENV/
 
 # Project specific
 high_score.txt
-screenshots/
+config/settings.py
+.env
+
+# Logs
 *.log
 
 # OS specific
