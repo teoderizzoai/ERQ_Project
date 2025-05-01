@@ -1,6 +1,7 @@
-# 🎮 [Elden Ring Quiz with RAG][https://erqproject-8ykkmud3dzdnzkwjqyggf3.streamlit.app/]
+# 🎮 [Elden Ring Quiz with RAG](https://erqproject-8ykkmud3dzdnzkwjqyggf3.streamlit.app/)
 
-![Main Menu Screenshot]([images/main_menu.png](https://imgur.com/ub0HDLG))
+
+![Main Menu Screenshot](https://i.imgur.com/ub0HDLG.png)
 
 This project is my personal attempt to **understand how Retrieval-Augmented Generation (RAG)** works by building a practical application:  
 a **personalized quiz generator** for *Elden Ring*, combining structured item data with contextual in-game lore.
@@ -40,7 +41,7 @@ An interactive quiz app that demonstrates RAG in action:
 
 ## 🖼️ Example Question
 
-![Question Screenshot]([images/question_example.png](https://imgur.com/36Nj2Fn))
+![Question Screenshot](https://i.imgur.com/36Nj2Fn.png)
 
 ---
 
