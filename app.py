@@ -146,7 +146,7 @@ def show_main_menu():
         logger.debug(f"Attempting to load banner from: {banner_path}")
         if banner_path.exists():
             logger.debug("Banner file exists, loading image")
-            st.image(str(banner_path), use_container_width=True)
+            st.image(str(banner_path), width='100%')
         else:
             logger.warning(f"Banner not found at path: {banner_path}")
     except Exception as e:
@@ -314,7 +314,7 @@ def show_question():
                     logger.debug(f"Looking for you_died image at: {you_died_path}")
                     if you_died_path.exists():
                         logger.debug("You died image found, displaying")
-                        st.image(str(you_died_path), use_container_width=True)
+                        st.image(str(you_died_path), width='100%')
                     else:
                         logger.warning(f"You died image not found at path: {you_died_path}")
                 except Exception as e:
