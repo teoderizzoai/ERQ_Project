@@ -1,7 +1,7 @@
 # config/settings.py
 import os
 
-API_KEY = "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"
+API_KEY = "API KEY"
 
 # Get the absolute path to the project root
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
