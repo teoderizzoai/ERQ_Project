@@ -45,28 +45,6 @@ An interactive quiz app that demonstrates RAG in action:
 
 ---
 
-## 🧠 How It Works
-
-### 1. Text Processing (`text_processor.py`)
-```python
-def get_context_for_query(query: str, num_chunks: int = 2) -> str:
-    chunker = TextChunker()
-    chunker.load_text(lore_file)
-    relevant_chunks = chunker.get_relevant_chunks(query, num_chunks)
-    return "\n\n---\n\n".join(chunk for _, chunk in relevant_chunks)
-```
-
-### 2. Quiz Generation (`quiz/generator.py`)
-```python
-def generate_quiz(items):
-    quiz_item = select_random_item(items)
-    additional_context = get_context_for_query(quiz_item['name'])
-    response = call_groq_api(prompt_with_context)
-    return parse_quiz(response)
-```
-
----
-
 ## 🛠️ Tech Stack
 
 - **Frontend**: Streamlit  
@@ -74,32 +52,6 @@ def generate_quiz(items):
 - **Storage**: JSON files + raw text  
 - **Text Retrieval**: Custom scoring-based chunk retriever  
 - **State & Logic**: Python
-
----
-
-## 🚀 Getting Started
-
-1. **Clone the repo**
-```bash
-git clone https://github.com/yourusername/elden-ring-quiz.git
-cd elden-ring-quiz
-```
-
-2. **Install dependencies**
-```bash
-pip install -r requirements.txt
-```
-
-3. **Add your Groq API key**
-```python
-# Inside config/settings.py
-API_KEY = "your-groq-api-key"
-```
-
-4. **Launch the app**
-```bash
-streamlit run app.py
-```
 
 ---
 
