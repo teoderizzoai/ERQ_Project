@@ -1,7 +1,14 @@
 # config/settings.py
 import os
+from dotenv import load_dotenv
 
-API_KEY = "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"
+# Load environment variables
+load_dotenv()
+
+# Get API key from environment variable
+API_KEY = os.getenv("GROQ_API_KEY")
+if not API_KEY:
+    raise ValueError("GROQ_API_KEY environment variable not set")
 
 # Get the absolute path to the project root
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))

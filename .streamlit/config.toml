@@ -1,0 +1,12 @@
+[theme]
+primaryColor = "#FFD700"  # Gold color for Elden Ring theme
+backgroundColor = "#0E1117"
+secondaryBackgroundColor = "#262730"
+textColor = "#FAFAFA"
+
+[server]
+maxUploadSize = 200
+enableXsrfProtection = true
+
+[browser]
+gatherUsageStats = false 
