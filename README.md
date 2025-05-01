@@ -6,6 +6,14 @@
 This project is my personal attempt to **understand how Retrieval-Augmented Generation (RAG)** works by building a practical application:  
 a **personalized quiz generator** for *Elden Ring*, combining structured item data with contextual in-game lore.
 
+---
+
+## 🚀 Try it here for free!
+
+👉 [**Launch the App**](https://erqproject-8ykkmud3dzdnzkwjqyggf3.streamlit.app/) on Streamlit Cloud
+
+---
+
 Every quiz is:
 - 🧠 **Personalized** based on a specific item (weapons, NPCs, places, etc.)
 - 📖 Based only on **in-game text and descriptions**
