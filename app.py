@@ -142,13 +142,16 @@ def show_main_menu():
     """Display the main menu state"""
     # Show banner
     try:
-        banner_path = Path("images/banner.png")
+        banner_path = Path("images/banner.png").absolute()
+        logger.debug(f"Attempting to load banner from: {banner_path}")
         if banner_path.exists():
+            logger.debug("Banner file exists, loading image")
             st.image(str(banner_path), use_container_width=True)
         else:
-            logger.warning("Banner not found")
+            logger.warning(f"Banner not found at path: {banner_path}")
     except Exception as e:
-        logger.warning(f"Could not load banner image: {e}")
+        logger.error(f"Could not load banner image: {e}")
+        logger.error(f"Current working directory: {Path.cwd()}")
     
     # Add some spacing
     st.write("")
@@ -307,15 +310,16 @@ def show_question():
             if is_wrong_answer:
                 # Show you_died image for wrong answers
                 try:
-                    you_died_path = Path("images/you_died.png")
+                    you_died_path = Path("images/you_died.png").absolute()
                     logger.debug(f"Looking for you_died image at: {you_died_path}")
                     if you_died_path.exists():
                         logger.debug("You died image found, displaying")
                         st.image(str(you_died_path), use_container_width=True)
                     else:
-                        logger.warning("You died image not found")
+                        logger.warning(f"You died image not found at path: {you_died_path}")
                 except Exception as e:
-                    logger.warning(f"Could not load you_died.png: {e}")
+                    logger.error(f"Could not load you_died.png: {e}")
+                    logger.error(f"Current working directory: {Path.cwd()}")
             else:
                 # Show item image
                 logger.debug("Showing item image")
