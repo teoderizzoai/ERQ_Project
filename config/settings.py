@@ -9,8 +9,8 @@ logger = logging.getLogger(__name__)
 
 # Simple secrets access
 try:
-    # Access the API key directly from secrets
-    API_KEY = st.secrets["GROQ_API_KEY"]
+    # Access the API key from the secrets section
+    API_KEY = st.secrets["secrets"]["GROQ_API_KEY"]
     logger.debug("Successfully loaded API key from secrets")
 except Exception as e:
     logger.error(f"Error accessing secrets: {e}")
@@ -20,6 +20,8 @@ except Exception as e:
         logger.error(f"st.secrets type: {type(st.secrets)}")
         try:
             logger.error(f"st.secrets keys: {list(st.secrets.keys())}")
+            if "secrets" in st.secrets:
+                logger.error(f"nested secrets keys: {list(st.secrets['secrets'].keys())}")
         except Exception as e2:
             logger.error(f"Could not get st.secrets keys: {e2}")
     raise ValueError("Failed to access API key. Please check your Streamlit Cloud secrets configuration.")
