@@ -10,7 +10,11 @@ from text_processor import get_context_for_query
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
-client = groq.Groq(api_key=API_KEY)
+# Initialize Groq client without proxies
+client = groq.Groq(
+    api_key=API_KEY,
+    base_url="https://api.groq.com"
+)
 
 def select_random_item(items):
     """Select a random item from the database"""
