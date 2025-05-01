@@ -171,11 +171,10 @@ def generate_quiz(items):
         if quiz_item.get('type', '').lower() == 'npcs' and quiz_item.get('quote'):
             description = quiz_item['quote']
             
-        # Get additional context from lore file
+        # Get additional context from lore file for question generation
+        additional_context = ""
         try:
             additional_context = get_context_for_query(quiz_item['name'])
-            if additional_context:
-                description = f"{description}\n\nAdditional Context:\n{additional_context}"
         except Exception as e:
             logger.warning(f"Failed to get additional context: {e}")
         
@@ -189,7 +188,13 @@ Generate a multiple-choice quiz question about this Elden Ring item:
 Name: {quiz_item['name']}
 Description: {description}
 
-Create a challenging but fair question about this item.
+Additional Context:
+{additional_context}
+
+Create a challenging but fair question about the lore surrounding this item ({quiz_item['name']}).
+the description is important.
+For example, if the item is a weapon, the question should be about the weapon, the purpose of who wielded it, what was the weapon used for, etc.
+
 You MUST follow these rules EXACTLY:
 
 1. Write the question directly without any prefix
@@ -211,14 +216,20 @@ D) [Fourth option]
 Answer: [Letter]
 
 Example:
-What is the significance of the item's description?
+
+What insights does the item's description offer?
+
+or (How does the description shape our understanding of the item?)
+
+or (What does the item's description reveal about its purpose or value?)
+
 A) It represents the character's journey of self-discovery
 B) It symbolizes the eternal struggle between light and dark
 C) It reflects the character's tragic past and lost memories
 D) It signifies the character's role as a guardian of ancient knowledge
 Answer: D
 
-IMPORTANT: You MUST include ALL FOUR options A, B, C, and D. Do not skip any options.
+IMPORTANT: You MUST include ALL FOUR options A, B, C, and D. Do not skip any options. Don't phrase the question as: What is the significance of
 """
                 
                 response = call_groq_api(prompt, max_tokens=300, temperature=0.7)
@@ -261,7 +272,7 @@ IMPORTANT: You MUST include ALL FOUR options A, B, C, and D. Do not skip any opt
             'options': options,
             'correct': correct,
             'image': quiz_item.get('image', ''),
-            'description': focused_description
+            'description': description  # Only return the original description without additional context
         }
             
     except Exception as e:
